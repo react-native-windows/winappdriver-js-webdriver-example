@@ -18,11 +18,13 @@ I prototyped and successfully made the two webdrivers to be happy with WinAppDri
 ## Examples
 I provided two examples which are using selenium-webdriver or webdriverio.
 
-- [selenium-webdriver](packages/selenium-webdriver/README.md)
+- [selenium-webdriver example](packages/selenium-webdriver/README.md)
+
 selenium-webdriver is the offical WebDriver JavaScript binding from selenium project. Unfortunately selenium-webdriver doesn't support [Mobile JSON Wire Protocol Specification](https://github.com/SeleniumHQ/selenium/wiki/JsonWireProtocol).
 [selenium-appium](https://www.npmjs.com/package/selenium-appium) is selenium-webdriver extension to make selenium-webdriver to drive Appium to run automation.
 
-- [webdriverio](packages/webdriverio/README.md)
+- [webdriverio example](packages/webdriverio/README.md)
+
 WinAppDriver doesn't implement w3c WebDriver completely, so currently I workaround the problem by [WebDriver](https://github.com/react-native-windows/webdriver). In your project, you have to use private webdriver in package.json lke this:
 ```
     "webdriverio": "^5.10.1",
