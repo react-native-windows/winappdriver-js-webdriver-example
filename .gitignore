@@ -2,3 +2,6 @@
 # Reports section
 */reports/
 .vscode
+node_modules
+yarn.lock
+*/yarn.lock
