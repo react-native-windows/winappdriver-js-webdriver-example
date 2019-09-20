@@ -29,18 +29,20 @@ steps:
       AgentResolution: 1080p
 
   - task: CmdLine@2
-    displayName: Run WebDriverIO test
-    inputs:
-      script: yarn run test
-      workingDirectory: packages\webdriverio
-
-  - task: CmdLine@2
     displayName: Run selenium-webdriver test
     inputs:
       script: yarn run test
       workingDirectory: packages\selenium-webdriver
 
+  - task: CmdLine@2
+    displayName: Run WebDriverIO test
+    inputs:
+      script: yarn run test
+      workingDirectory: packages\webdriverio
+    condition: succeededOrFailed()
+
   - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
     displayName: 'Stop - WinAppDriver'
     inputs:
       OperationType: Stop
+    condition: succeededOrFailed()
