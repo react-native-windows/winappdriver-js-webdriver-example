@@ -18,7 +18,7 @@
     "@wdio/jasmine-framework": "^5.12.1",
     "@wdio/junit-reporter": "^5.12.1",
     "@wdio/sync": "^5.10.1",
-    "@wdio/dot-reporter": "5.11.7",
+    "@wdio/dot-reporter": "5.12.1",
     "chai": "^4.2.0",
     "prettier": "^1.18.2",
     "ts-node": "^7.0.1",
