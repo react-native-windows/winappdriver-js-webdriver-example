@@ -1,16 +1,4 @@
-trigger:
-- master
-
-pool:
-  vmImage: 'windows-2019'
-
 steps:
-  - checkout: self
-    clean: true
-    lfs: false
-    submodules: true
-    persistCredentials: false
-
   - task: NuGetToolInstaller@0
     displayName: 'Use NuGet 4.4.1'
     inputs:
@@ -33,10 +21,4 @@ steps:
       SourceFolder: '$(system.defaultworkingdirectory)'
       Contents: '**\bin\$(BuildConfiguration)\**'
       TargetFolder: '$(build.artifactstagingdirectory)'
-    condition: succeededOrFailed()
-
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: drop'
-    inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
     condition: succeededOrFailed()

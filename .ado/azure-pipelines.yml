@@ -1,0 +1,46 @@
+trigger: none # will disable CI builds entirely
+
+pr:
+  - master
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+  - checkout: self
+    clean: true
+    lfs: false
+    submodules: true
+    persistCredentials: false
+  
+  - template: templates/buildTestApp.yml
+
+  - template: templates/deployTestApp.yml
+
+  - task: CmdLine@2
+    displayName: yarn install
+    inputs:
+      script: yarn install
+
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Start - WinAppDriver'
+    inputs:
+      WADArguments: 127.0.0.1 4723/wd/hub
+      AgentResolution: 1080p
+
+  - task: 
+    displayName: Run WebDriverIO test
+    inputs:
+      script: yarn run test
+      workingDirectory: packages\webdriverio
+
+  - task: 
+    displayName: Run selenium-webdriver test
+    inputs:
+      script: yarn run test
+      workingDirectory: packages\selenium-webdriver
+
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Stop - WinAppDriver'
+    inputs:
+      OperationType: Stop
