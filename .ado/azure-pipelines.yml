@@ -31,7 +31,7 @@ steps:
   - task: CmdLine@2
     displayName: Run selenium-webdriver test
     inputs:
-      script: yarn run test
+      script: yarn run jest
       workingDirectory: packages\selenium-webdriver
 
   - task: CmdLine@2

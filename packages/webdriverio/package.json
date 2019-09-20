@@ -24,7 +24,7 @@
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.1",
-    "webdriverio": "^5.10.1",
+    "webdriverio": "5.10.1",
     "webdriver": "git+https://github.com/react-native-windows/webdriver.git",
     "appium": "1.14.1",
     "rimraf": "3.0.0"
