@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - master
 
@@ -5,38 +10,34 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-  - checkout: self
-    clean: true
-    lfs: false
-    submodules: true
-    persistCredentials: false
+  - task: DownloadBuildArtifacts@0
+    displayName: 'Download Build Artifacts'
+    inputs:
+      artifactName: drop
+      downloadPath: '$(build.artifactstagingdirectory)\AppxPackages'
 
-  - task: NuGetToolInstaller@0
-    displayName: 'Use NuGet 4.4.1'
+  - task: PowerShell@1
+    displayName: 'Install Xaml Controls Cert'
     inputs:
-      versionSpec: 4.4.1
+      scriptType: inlineScript
+      arguments: '-NonInteractive -Verb RunAs'
+      inlineScript: |
+       $file = ( Get-ChildItem -Path $(Build.ArtifactStagingDirectory)\AppxPackages\drop\XamlControlsGallery_$(PackageManifest)_Test\XamlControlsGallery_$(PackageManifest)_x86.cer )
+       $file | Import-Certificate -CertStoreLocation cert:\LocalMachine\Root
 
-  - task: NuGetCommand@2
-    displayName: 'NuGet restore'
+  - task: PowerShell@1
+    displayName: 'Install XAML Appx Packages'
     inputs:
-      restoreSolution: Xaml-Controls-Gallery/XamlControlsGallery/XamlControlsGallery.sln
-  - task: VSBuild@1
-    displayName: 'Build solution XamlControlsGallery/XamlControlsGallery.sln'
-    inputs:
-      solution: Xaml-Controls-Gallery/XamlControlsGallery/XamlControlsGallery.sln
-      msbuildArgs: '/p:Configuration=Deploy /p:AppxPackageDir="$(Build.ArtifactStagingDirectory)\\" /p:UapAppxPackageBuildMode=CI/p:AppxBundlePlatforms="x64" /p:AppxBundle=Always'
-      platform: x86
-      configuration: Release
-  - task: CopyFiles@2
-    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-    inputs:
-      SourceFolder: '$(system.defaultworkingdirectory)'
-      Contents: '**\bin\$(BuildConfiguration)\**'
-      TargetFolder: '$(build.artifactstagingdirectory)'
-    condition: succeededOrFailed()
+      scriptName: '$(Build.ArtifactStagingDirectory)\AppxPackages\drop\XamlControlsGallery_$(PackageManifest)_Test\Add-AppDevPackage.ps1'
+      arguments: '-NonInteractive -Force:$true  -Verb RunAs'
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: drop'
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Start - WinAppDriver'
     inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
-    condition: succeededOrFailed()
+      WADArguments: 127.0.0.1 4723/wd/hub
+      AgentResolution: 1080p
+
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Stop - WinAppDriver'
+    inputs:
+      OperationType: Stop
