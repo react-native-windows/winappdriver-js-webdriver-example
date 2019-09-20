@@ -74,7 +74,7 @@ exports.config = {
             // http://appium.io/docs/en/writing-running-appium/caps/
             // This is `appium:` for all Appium Capabilities which can be found here
             'appium:deviceName': 'WindowsPC',
-            'appium:app': 'Microsoft.WindowsCalculator_8wekyb3d8bbwe!App',
+            'appium:app': 'Microsoft.XAMLControlsGallery_8wekyb3d8bbwe!App',
             'appium:ms:experimental-webdriver': true,
         },
         // {
@@ -143,7 +143,7 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: 'jasmine',
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
@@ -160,6 +160,10 @@ exports.config = {
             // 'ts-node/register',
             'tsconfig-paths/register'
         ]
+    },
+   
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 60000,
     },
     //
     // =====

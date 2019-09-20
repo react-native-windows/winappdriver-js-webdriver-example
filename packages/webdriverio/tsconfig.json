@@ -1,28 +1,32 @@
 {
     "compilerOptions": {
-        "lib": [
-            "dom",
-            "es7"
-        ],
-        "target": "es5",
-        "module": "commonjs",
-        "noImplicitAny": false,
-        "noImplicitReturns": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,              
-        "baseUrl": ".",
-        "paths": {
-                "*": [ "./*" ],
-                "pages/*": ["./pages/*"],
-                "test/*": ["./test/*"],
-        },
-        "types": ["@wdio/sync", "@wdio/mocha-framework", "node", "chai"]
-    },    
+      "baseUrl": ".",
+      "target": "es6",
+      "module": "commonjs",
+      "jsx": "react",
+      "outDir": "dist",
+      "declaration": true,
+      "sourceMap": true,
+      "noEmitOnError": true,
+      "skipLibCheck": true,
+      "moduleResolution": "node",
+      "noEmit": true,
+      "noUnusedLocals": true,
+      "strict": true,
+      "rootDir": ".",
+      "esModuleInterop": true,
+      "types": [
+        "@wdio/sync",
+        "@wdio/jasmine-framework",
+        "@types/jasmine",
+        "node"
+      ]
+    },
     "include": [
-        "./test/**/*.ts"
+      "pages",
+      "test"
     ],
     "exclude": [
-      "./node_modules"
-    ],
-    "compileOnSave": false
-}
+      "node_modules"
+    ]
+  }
