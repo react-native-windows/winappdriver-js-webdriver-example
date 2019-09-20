@@ -28,13 +28,13 @@ steps:
       WADArguments: 127.0.0.1 4723/wd/hub
       AgentResolution: 1080p
 
-  - task: 
+  - task: CmdLine@2
     displayName: Run WebDriverIO test
     inputs:
       script: yarn run test
       workingDirectory: packages\webdriverio
 
-  - task: 
+  - task: CmdLine@2
     displayName: Run selenium-webdriver test
     inputs:
       script: yarn run test
