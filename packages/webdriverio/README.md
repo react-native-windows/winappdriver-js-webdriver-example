@@ -1,15 +1,13 @@
-# CalculatorTest
+# webdriverio
 
-CalculatorTest is a sample test project that runs and validates basic UI scenarios on Windows 10 built-in **Calculator** application using JavaScript. This sample is created as the most basic test project to quickly try out Windows Application Driver.
+Thie project is a sample test project that runs and validates basic UI scenarios on [Xaml-Controls-Gallery](https://github.com/Microsoft/Xaml-Controls-Gallery) application using JavaScript. This sample is created as the most basic test project to quickly try out Windows Application Driver.
 
 This test project highlights the following basic interactions to demonstrate how UI testing using Windows Application Driver work.
 - Creating a modern UWP app session
-- Finding element using accessibility id
+- Finding element using 'accessibility id' and 'name'
 - Sending click action to an element
 - Retrieving element value
 - Use WebDriverIO
-- Test: WebDriverIO <-> Appium <-> WinAppDriver
-- Test: WebDriverIO <-> WinAppDriver
 
 ## Requirements
 
@@ -23,6 +21,10 @@ This test project highlights the following basic interactions to demonstrate how
   ```
 * Install [Yarn](https://yarnpkg.com/en/docs/install) (*optional* if you use npm command directly)
 
+* Download and Install 'xaml controls Gallery' from Microsoft Store.
+
+* Install [WinAppDriver](https://github.com/Microsoft/WinAppDriver/releases) on the test device
+
 ## Getting Started
  Install dependencies from the package.json file
   ```
@@ -30,34 +32,14 @@ This test project highlights the following basic interactions to demonstrate how
   ```
 
 ## Run the test
-Appium is optional. There are two typical configuration
-1. test <-> Appium <-> WinAppDriver
-2. test <-> WinAppDriver
-
-### Test: WebDriverIO <-> Appium <-> WinAppDriver
-1. Start appium
-
-```
-yarn run appium
-```
-
-And the output is like this:
-```
-warning package.json: No license field
-$ appium
-[Appium] Welcome to Appium v1.14.1
-[Appium] Appium REST http interface listener started on 0.0.0.0:4723
-
-```
-2. Launch the test
+### By launching WinAppDriver automatically
+1. Launch the test
 ```
 yarn run testappium
 ```
 
-### Test: WebDriverIO <-> WinAppDriver
-1. [Install](../../../README.md#installing-and-running-windows-application-driver) `WinAppDriver.exe` on the test device
-
-2. Start WinAppDriver and listen on 4723/wd/hub
+### By launching WinAppDriver manually
+1. Start WinAppDriver and listen on 4723/wd/hub
 ```
 cd C:\Program Files (x86)\Windows Application Driver
 c:
@@ -69,7 +51,11 @@ Windows Application Driver listening for requests at: http://127.0.0.1:4723/wd/h
 Press ENTER to exit.
 ```
 
-3. Launch the test
+or
+```
+yarn run appium
+```
+2. Launch the test
 ```
 yarn run test
 ```

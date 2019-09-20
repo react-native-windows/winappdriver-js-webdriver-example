@@ -1,7 +1,5 @@
 */node_modules
 # Reports section
-*/reports/
+packages/webdriverio/reports
 .vscode
 node_modules
-yarn.lock
-*/yarn.lock

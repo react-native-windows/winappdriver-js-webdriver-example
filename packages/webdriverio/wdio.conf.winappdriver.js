@@ -74,7 +74,7 @@ exports.config = {
             // http://appium.io/docs/en/writing-running-appium/caps/
             // This is `appium:` for all Appium Capabilities which can be found here
             'deviceName': 'WindowsPC',
-            'app': 'Microsoft.WindowsCalculator_8wekyb3d8bbwe!App',
+            'app': 'Microsoft.XAMLControlsGallery_8wekyb3d8bbwe!App',
             'ms:experimental-webdriver': true,
         },
         // {
@@ -129,9 +129,6 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     //services: ['appium'],
-    appium: {
-        command: 'node_modules\\.bin\\appium.cmd',
-    },
     port: 4723,
     //
     // Framework you want to run your specs with.
@@ -140,7 +137,7 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'mocha',
+    framework: 'jasmine',
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
@@ -157,6 +154,10 @@ exports.config = {
             // 'ts-node/register',
             'tsconfig-paths/register'
         ]
+    },
+   
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 60000,
     },
     //
     // =====
