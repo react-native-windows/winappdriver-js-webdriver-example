@@ -5,31 +5,38 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run example'
+  - checkout: self
+    clean: true
+    lfs: false
+    submodules: true
+    persistCredentials: false
 
-- task: CmdLine@2
-  displayName: yarn install
-  inputs:
-    script: yarn install
-    workingDirectory: example
+  - task: NuGetToolInstaller@0
+    displayName: 'Use NuGet 4.4.1'
+    inputs:
+      versionSpec: 4.4.1
 
-- task: Windows Application Driver@0
-  inputs:
-    OperationType: 'Start'
-    WADArguments: '127.0.0.1 4723/wd/hub'
+  - task: NuGetCommand@2
+    displayName: 'NuGet restore'
+    inputs:
+      restoreSolution: Xaml-Controls-Gallery/XamlControlsGallery/XamlControlsGallery.sln
+  - task: VSBuild@1
+    displayName: 'Build solution XamlControlsGallery/XamlControlsGallery.sln'
+    inputs:
+      solution: Xaml-Controls-Gallery/XamlControlsGallery/XamlControlsGallery.sln
+      msbuildArgs: '/p:Configuration=Deploy /p:AppxPackageDir="$(Build.ArtifactStagingDirectory)\\" /p:UapAppxPackageBuildMode=CI/p:AppxBundlePlatforms="x64" /p:AppxBundle=Always'
+      platform: x86
+      configuration: Release
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    inputs:
+      SourceFolder: '$(system.defaultworkingdirectory)'
+      Contents: '**\bin\$(BuildConfiguration)\**'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
 
-- task: CmdLine@2
-  displayName: yarn run jest
-  inputs:
-    script: yarn run jest
-    workingDirectory: example
-
-- task: Windows Application Driver@0
-  inputs:
-    OperationType: 'Stop'
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    inputs:
+      PathtoPublish: '$(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
