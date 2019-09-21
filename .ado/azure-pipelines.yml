@@ -22,7 +22,8 @@ steps:
   - task: DeleteFiles@1
     displayName: Delete webdriver from webdriverio
     inputs:
-      SourceFolder: "node_modules\webdriverio\node_modules\webdriver"
+      SourceFolder: node_modules\webdriverio\node_modules
+      Contents: webdriver
 
   - template: templates/buildTestApp.yml
 
