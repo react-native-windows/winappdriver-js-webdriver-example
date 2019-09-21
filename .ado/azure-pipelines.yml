@@ -34,6 +34,24 @@ steps:
       script: yarn run jest
       workingDirectory: packages\selenium-webdriver
 
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Stop - WinAppDriver'
+    inputs:
+      OperationType: Stop
+    condition: succeededOrFailed()
+
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Start - WinAppDriver'
+    inputs:
+      WADArguments: 127.0.0.1 4723/wd/hub
+      AgentResolution: 1080p
+
+  - task: CmdLine@2
+    displayName: yarn install
+    inputs:
+      script: yarn install
+      workingDirectory: packages\webdriverio
+
   - task: CmdLine@2
     displayName: Run WebDriverIO test
     inputs:
