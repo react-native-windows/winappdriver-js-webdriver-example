@@ -20,7 +20,7 @@ steps:
     condition: 
 
   - task: DeleteFiles@1
-    displayName: Delete webdriver from webdriverio
+    displayName: Delete webdriver from webdriverio to workaround WinAppDriverBug
     inputs:
       SourceFolder: node_modules\webdriverio\node_modules
       Contents: webdriver
