@@ -36,6 +36,13 @@ steps:
     condition: succeededOrFailed()
 
   - task: CmdLine@2
+    displayName: yarn list package
+    inputs:
+      script: yarn list --pattern *webdriver*
+      workingDirectory: packages\webdriverio
+    condition: succeededOrFailed()
+
+  - task: CmdLine@2
     displayName: Run WebDriverIO test
     inputs:
       script: yarn run test
