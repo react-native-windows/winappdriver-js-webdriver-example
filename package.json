@@ -1,28 +1,19 @@
 {
-  "name": "react-native-windows-repo",
+  "name": "winappdriver-js-webdriver-example-repo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "lerna run build --stream",
-    "buildci": "lerna run build --stream -- --ci",
-    "change": "node ./node_modules/beachball/bin/beachball.js change",
-    "clean": "lerna run clean --stream",
-    "format": "node packages/scripts/formatFiles.js -i -style=file -assume-filename=../.clang-format",
-    "format:verify": "node packages/scripts/formatFiles.js -i -style=file -assume-filename=../.clang-format -verify"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:microsoft/react-native-windows.git"
+    "url": "git@github.com:react-native-windows/winappdriver-js-webdriver-example.git"
   },
   "license": "MIT",
   "workspaces": {
     "packages": [
-      "packages/*",
-      "vnext"
+      "packages/*"
     ]
   },
   "devDependencies": {
-    "beachball": "^1.12.2",
-    "lerna": "^3.16.1"
   }
 }
