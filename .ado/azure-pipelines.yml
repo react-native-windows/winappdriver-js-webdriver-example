@@ -18,9 +18,9 @@ steps:
   - template: templates/deployTestApp.yml
 
   - task: CmdLine@2
-    displayName: yarn install
+    displayName: Delete package.json
     inputs:
-      script: yarn install
+      script: rmdir package.json
 
   - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
     displayName: 'Start - WinAppDriver'
@@ -60,6 +60,13 @@ steps:
     inputs:
       WADArguments: 127.0.0.1 4723/wd/hub
       AgentResolution: 1080p
+    condition: succeededOrFailed()
+
+  - task: CmdLine@2
+    displayName: yarn install
+    inputs:
+      script: yarn install
+      workingDirectory: packages\selenium-webdriver
     condition: succeededOrFailed()
 
   - task: CmdLine@2
