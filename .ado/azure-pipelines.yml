@@ -12,21 +12,11 @@ steps:
     lfs: false
     submodules: true
     persistCredentials: false
-  
-  - template: templates/buildTestApp.yml
 
-  - template: templates/deployTestApp.yml
-
-  - task: CmdLine@2
-    displayName: Delete package.json
+  - task: DeleteFiles@1
     inputs:
-      script: rmdir package.json
-
-  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
-    displayName: 'Start - WinAppDriver'
-    inputs:
-      WADArguments: 127.0.0.1 4723/wd/hub
-      AgentResolution: 1080p
+      SourceFolder: 
+      Contents: 'package.json'
 
   - task: CmdLine@2
     displayName: yarn install
@@ -41,6 +31,16 @@ steps:
       script: yarn list --pattern *webdriver*
       workingDirectory: packages\webdriverio
     condition: succeededOrFailed()
+
+  - template: templates/buildTestApp.yml
+
+  - template: templates/deployTestApp.yml
+
+  - task: WinAppDriver.winappdriver-pipelines-task.winappdriver-pipelines-task.Windows Application Driver@0
+    displayName: 'Start - WinAppDriver'
+    inputs:
+      WADArguments: 127.0.0.1 4723/wd/hub
+      AgentResolution: 1080p
 
   - task: CmdLine@2
     displayName: Run WebDriverIO test
