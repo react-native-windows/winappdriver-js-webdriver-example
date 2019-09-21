@@ -13,24 +13,16 @@ steps:
     submodules: true
     persistCredentials: false
 
-  - task: DeleteFiles@1
-    inputs:
-      SourceFolder: 
-      Contents: 'package.json'
-
   - task: CmdLine@2
     displayName: yarn install
     inputs:
       script: yarn install
-      workingDirectory: packages\webdriverio
-    condition: succeededOrFailed()
+    condition: 
 
-  - task: CmdLine@2
-    displayName: yarn list package
+  - task: DeleteFiles@1
+    displayName: Delete webdriver from webdriverio
     inputs:
-      script: yarn list --pattern *webdriver*
-      workingDirectory: packages\webdriverio
-    condition: succeededOrFailed()
+      SourceFolder: "node_modules\webdriverio\node_modules\webdriver"
 
   - template: templates/buildTestApp.yml
 
