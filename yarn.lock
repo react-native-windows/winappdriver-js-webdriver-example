@@ -1703,11 +1703,11 @@
     "@types/yargs-parser" "*"
 
 "@wdio/appium-service@^5.12.1":
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/@wdio/appium-service/-/appium-service-5.12.1.tgz#ea06a284ac3e9c2e0ae8f825e6c66de459f43910"
-  integrity sha512-uSAIXGNMg6+F2GpWqiOGUS2+jC3usBYu7FPS5qkpptoRj68+FMFZwrOWSe6XiYXupEWPl9LD/FqwTp80k3s72w==
+  version "5.13.2"
+  resolved "https://registry.yarnpkg.com/@wdio/appium-service/-/appium-service-5.13.2.tgz#c9a6d37a4b8d6f697184a2941f07e50c8cea15e2"
+  integrity sha512-J7NJYCkepWQ41+sEXhgK3s9kNBb+JAA08jtkftXtZzV6Ko4UlXRy4XFBKWh2Noz+7sBGEEXoe7/Cx2b/3EC6GA==
   dependencies:
-    "@wdio/logger" "^5.12.1"
+    "@wdio/logger" "5.13.2"
     fs-extra "^8.0.1"
     param-case "^2.1.1"
 
@@ -1790,10 +1790,10 @@
     async-exit-hook "^2.0.1"
     stream-buffers "^3.0.2"
 
-"@wdio/logger@^5.12.1":
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-5.12.1.tgz#1f753b0fa0c1dae455c2a485553890661150fc01"
-  integrity sha512-KUmdS0Scj0T5UQGtcWFiQRqc0NpFLQ/vSvRxlDzzkoeGwwPINqTRkLT103KL7Lyitlm9uLfaFfYc2KSzynTung==
+"@wdio/logger@5.13.2", "@wdio/logger@^5.12.1":
+  version "5.13.2"
+  resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-5.13.2.tgz#417f580f0882ff6d6ec2bd2c210502f2f8fa4f2b"
+  integrity sha512-F8NlP+AoN0zKv8+0iDAJxdbb488kk5LlPA6U6XPgTT/1xxPgpM4MVQoiCGtLOU9UNPX9XLfgoCXyYWMxp96Ncg==
   dependencies:
     chalk "^2.3.0"
     loglevel "^1.6.0"
