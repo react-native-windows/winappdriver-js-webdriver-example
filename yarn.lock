@@ -7098,10 +7098,10 @@ sec@^1.0.0:
   resolved "https://registry.yarnpkg.com/sec/-/sec-1.0.0.tgz#033d60a3ad20ecf2e00940d14f97823465774335"
   integrity sha1-Az1go60g7PLgCUDRT5eCNGV3QzU=
 
-selenium-appium@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/selenium-appium/-/selenium-appium-0.0.14.tgz#99b10f21876bb2c802560688f4abab315986bb10"
-  integrity sha512-BHksqsS6MagMKOT5Kg4YmXXkh+cNr+SLTwMXJuyfz9+HYycnU6Ipie11astKqhNUy5e1EDjooKVYS5iQvNVv+w==
+selenium-appium@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/selenium-appium/-/selenium-appium-0.0.15.tgz#27eacd40ebddc1f4af00a1c50278a394e420e2ef"
+  integrity sha512-9/DGdpC8TF88h2eOaFoLIwNDG16He5o2CZOOoaeV1gwNKpkvcpCCA6SjIxgHbWm/0vGzn8TUdmbAlszIoQQzQg==
 
 selenium-webdriver@3.x:
   version "3.6.0"
