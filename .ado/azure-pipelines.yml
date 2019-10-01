@@ -13,18 +13,24 @@ steps:
     submodules: true
     persistCredentials: false
 
+  - task: PowerShell@2
+    displayName: 'Remove WebDriverIO Workaround'
+    inputs:
+      targetType: 'inline'
+      script: '((Get-Content -path packages/webdriverio/package.json -Raw) -replace ".*webdriver.git.*","") | Set-Content -Path packages/webdriverio/package.json'
+
   - task: CmdLine@2
     displayName: yarn install
     inputs:
       script: yarn install
     condition: 
 
-  - task: DeleteFiles@1
-    displayName: Delete webdriver from webdriverio to workaround WinAppDriverBug
+  - task: PowerShell@2
+    displayName: 'Patch WebDriverIO'
     inputs:
-      SourceFolder: node_modules\webdriverio\node_modules
-      Contents: webdriver
-
+      targetType: 'inline'
+      script: '((Get-Content -path node_modules/webdriver/build/utils.js -Raw) -replace "if \(!body .*","if (!body) {") | Set-Content -Path node_modules/webdriver/build/utils.js'
+  
   - template: templates/buildTestApp.yml
 
   - template: templates/deployTestApp.yml
