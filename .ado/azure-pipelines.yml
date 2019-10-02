@@ -31,6 +31,12 @@ steps:
       targetType: 'inline'
       script: '((Get-Content -path node_modules/webdriver/build/utils.js -Raw) -replace "if \(!body .*","if (!body) {") | Set-Content -Path node_modules/webdriver/build/utils.js'
   
+  - task: PowerShell@2
+    displayName: 'Patch WebDriverIO'
+    inputs:
+      targetType: 'inline'
+      script: '((Get-Content -path node_modules/@wdio/runner/node_modules/webdriver/build/utils.js -Raw) -replace "if \(!body .*","if (!body) {") | Set-Content -Path node_modules/@wdio/runner/node_modules/webdriver/build/utils.js'
+  
   - template: templates/buildTestApp.yml
 
   - template: templates/deployTestApp.yml
