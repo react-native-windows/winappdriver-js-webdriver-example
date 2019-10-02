@@ -40,7 +40,27 @@ steps:
     inputs:
       WADArguments: 127.0.0.1 4723/wd/hub
       AgentResolution: 1080p
+      
+  - task: PowerShell@2
+    displayName: 'Start the App'
+    inputs:
+      targetType: 'inline'
+      script: 'start shell:AppsFolder\Microsoft.XAMLControlsGallery_8wekyb3d8bbwe!App'
 
+   # Wait for app to launch. A workaround to avoid WinAppDriver error: Failed to locate opened application window with appId
+  - task: PowerShell@2
+    displayName: Wait for app to launch
+    inputs:
+      targetType: inline # filePath | inline
+      script: |
+        Start-Sleep -Seconds 30
+
+  - task: PowerShell@2
+    displayName: 'Check TestApp'
+    inputs:
+      targetType: 'inline'
+      script: 'if ((Get-Process AppUIBasics) -eq $Null) { echo "TestApp is not running"; exit 1}'
+          
   - task: CmdLine@2
     displayName: Run WebDriverIO test
     inputs:
