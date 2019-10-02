@@ -1752,12 +1752,12 @@
     chalk "^2.3.0"
 
 "@wdio/jasmine-framework@^5.12.1":
-  version "5.12.1"
-  resolved "https://registry.yarnpkg.com/@wdio/jasmine-framework/-/jasmine-framework-5.12.1.tgz#d15a19783e9aba42851b1c3a9e916d32153070ce"
-  integrity sha512-iNQ3LDwAySCq/RyUteyhvdFV5sOQ7yuJuuF8/H14jr519vz3Ysf1C7mK+9P6P5QiXWTqx+8E8G9SktoY+4KyNA==
+  version "5.14.3"
+  resolved "https://registry.yarnpkg.com/@wdio/jasmine-framework/-/jasmine-framework-5.14.3.tgz#98d4f6faea687f2c07f4decb4cccf175f859fbcc"
+  integrity sha512-8C+qUjbpmpKu6Q0gCCl1D/Ck3Pv0OtNJkoPimKLlCNP2ysF18yB2HgXRHnLLwTFUovK9j9w5NnlAaW1y9EYZng==
   dependencies:
-    "@wdio/config" "^5.12.1"
-    "@wdio/logger" "^5.12.1"
+    "@wdio/logger" "5.13.2"
+    "@wdio/utils" "5.14.3"
     jasmine "^3.3.0"
 
 "@wdio/junit-reporter@^5.12.1":
@@ -1834,10 +1834,18 @@
     fibers "^4.0.1"
     fibers_node_v8 "^3.1.2"
 
-"@wdio/utils@5.13.2", "@wdio/utils@^5.13.0":
+"@wdio/utils@5.13.2":
   version "5.13.2"
   resolved "https://registry.yarnpkg.com/@wdio/utils/-/utils-5.13.2.tgz#2e56b5488521e394bce02de9b4236f21d1d582eb"
   integrity sha512-DGwoZZKpGo6BkLOIXnBHu+9mg0RABq0Sh9cb1GLOAeBeIEW7efCDYqT9+rczEJSgHKnKJra1+T8I4IfoxyUX/w==
+  dependencies:
+    "@wdio/logger" "5.13.2"
+    deepmerge "^4.0.0"
+
+"@wdio/utils@5.14.3", "@wdio/utils@^5.13.0":
+  version "5.14.3"
+  resolved "https://registry.yarnpkg.com/@wdio/utils/-/utils-5.14.3.tgz#b75aedb7fbef36f15a099ca9f959ee389ab2bf09"
+  integrity sha512-rxvAndBUd5wHxYaPocra8k+t8YkSpeitotUVYoHRGZXrm8wQuSbTGfDVXxpbm48iRdhrSRKAhP6EIHWT3ggWSg==
   dependencies:
     "@wdio/logger" "5.13.2"
     deepmerge "^4.0.0"
