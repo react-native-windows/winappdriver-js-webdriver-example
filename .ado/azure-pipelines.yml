@@ -59,7 +59,7 @@ steps:
     displayName: 'Check TestApp'
     inputs:
       targetType: 'inline'
-      script: 'if ((Get-Process AppUIBasics -eq $Null) { echo "TestApp is not running"; exit 1}'
+      script: 'if ((Get-Process AppUIBasics) -eq $Null) { echo "TestApp is not running"; exit 1}'
           
   - task: CmdLine@2
     displayName: Run WebDriverIO test
