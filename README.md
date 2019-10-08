@@ -1,4 +1,7 @@
+This repo is already merged into [WinAppDriver repo](https://github.com/microsoft/WinAppDriver/tree/master/Samples/JavaScript)
+
 # winappdriver-js-webdriver-example
+
 There are two popular JavaScript WebDrivers which could be used for WinAppDriver testing: [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver) and [webdriverio](https://webdriver.io/).
 
 This is used to demo UI automation testing with WinAppDriver which the test runner is JavaScript. It includes the examples and Azure Pipeline with selenium-webdirver and WebDriverIO.
