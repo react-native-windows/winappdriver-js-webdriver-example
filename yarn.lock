@@ -1752,12 +1752,12 @@
     deepmerge "^4.0.0"
     glob "^7.1.2"
 
-"@wdio/dot-reporter@5.14.4":
-  version "5.14.4"
-  resolved "https://registry.yarnpkg.com/@wdio/dot-reporter/-/dot-reporter-5.14.4.tgz#26d69996c20d9bbb5befc658a7763600237b6b60"
-  integrity sha512-AZegIKlyH/HTbvEmeSbrMoXNunx/PssK1ZSIqp06+0J+F5oF7MpUvmvTF36iMqh6pvE0zAsOiHjwyom4+97htg==
+"@wdio/dot-reporter@5.14.5":
+  version "5.14.5"
+  resolved "https://registry.yarnpkg.com/@wdio/dot-reporter/-/dot-reporter-5.14.5.tgz#8c2e55ca1729a661713344a67beb4fe26cd43658"
+  integrity sha512-P3M1HAr2kofJmHCreW3BdzeXAqfRA4S8vHO1sSF2nG1mGvtj8/bHE4l+p3ETjMI3fpinpwcRwux7Mqv241S7ag==
   dependencies:
-    "@wdio/reporter" "5.14.4"
+    "@wdio/reporter" "5.14.5"
     chalk "^2.3.0"
 
 "@wdio/jasmine-framework@^5.12.1":
@@ -1824,10 +1824,10 @@
   dependencies:
     "@wdio/utils" "5.14.3"
 
-"@wdio/reporter@5.14.4", "@wdio/reporter@^5.12.1":
-  version "5.14.4"
-  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-5.14.4.tgz#43c50e512864ebdbb0dc0483b3727c943761ec84"
-  integrity sha512-X7HhWDIkcz5a6UpK214w/tUn7HD3ITTn73Quxnaood+q/azqfLN2HJESA0c0np6CNx4VgZFusVWCc5flJXPdog==
+"@wdio/reporter@5.14.5", "@wdio/reporter@^5.12.1":
+  version "5.14.5"
+  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-5.14.5.tgz#2d04579e2bb86bf6cd36346b5de6d9f7d7e91be6"
+  integrity sha512-ySFUny5LBKIso1wZW5is5AyBU3Kje/7AzWok1Dz45kxr2vg0IfUyd3NIjiUxJf3TLm7YVRJvCDouaDr5betXPA==
   dependencies:
     fs-extra "^8.0.1"
 
