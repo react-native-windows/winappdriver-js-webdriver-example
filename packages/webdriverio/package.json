@@ -25,7 +25,7 @@
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.1",
-    "appium": "1.15.0",
+    "appium": "1.15.1",
     "rimraf": "3.0.0"
   }
 }
