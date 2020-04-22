@@ -21,7 +21,7 @@
     "@wdio/dot-reporter": "5.14.4",
     "webdriver": "git+https://github.com/react-native-windows/webdriver.git",
     "webdriverio": "^5.13.1",
-    "prettier": "^1.18.2",
+    "prettier": "^2.0.5",
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.1",
