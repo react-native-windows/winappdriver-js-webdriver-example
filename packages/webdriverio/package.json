@@ -22,7 +22,7 @@
     "webdriver": "git+https://github.com/react-native-windows/webdriver.git",
     "webdriverio": "^5.13.1",
     "prettier": "^1.18.2",
-    "ts-node": "^8.4.1",
+    "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.8.0",
     "typescript": "^3.5.1",
     "appium": "1.15.0",
