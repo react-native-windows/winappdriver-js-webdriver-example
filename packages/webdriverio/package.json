@@ -10,7 +10,7 @@
     "appium": "appium"
   },
   "devDependencies": {
-    "@wdio/appium-service": "^5.12.1",
+    "@wdio/appium-service": "^6.6.0",
     "@types/jasmine": "^3.4.1",
     "@types/node": "^12.7.5",
     "@wdio/cli": "^5.10.1",
