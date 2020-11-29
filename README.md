@@ -1,3 +1,14 @@
+# Warnings:
+Because XamlControlGalary app changed a lot, the test cases would fail. So I will not maintain the test cases on this repo anymore.
+If you are looking for:
+1. Jest + selenium-webdriver + WinAppDriver, please refer to [selenium-appium example](
+https://github.com/react-native-windows/selenium-appium/tree/master/example).
+2. Jasmine + WebDriverIO + WinAppDriver, please refer to [wdio-winappdriver-example](https://github.com/licanhua/wdio-winappdriver-example)
+
+I created a open source WinappDriver, welcome to try it: [YWinAppDriver](https://github.com/licanhua/YWinAppDriver)
+
+
+# Below are the old Readme
 This repo is already merged into [WinAppDriver repo](https://github.com/microsoft/WinAppDriver/tree/master/Samples/JavaScript)
 
 # winappdriver-js-webdriver-example
